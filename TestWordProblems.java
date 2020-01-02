@@ -15,19 +15,20 @@ public class TestWordProblems {
     private static final int ANARUNS = 300;
     private static final int PARTRUNS = 50000;
     private static ArrayList<String> words = new ArrayList<String>();
+    private static String WORDFILE = "words_alpha.txt";
     
     private static void readWords() {
         if(words.size() > 0) { return; }
         try {
-            Scanner s = new Scanner(new File("words_alpha.txt"));
+            Scanner s = new Scanner(new File(WORDFILE));
             while(s.hasNextLine()) {
                 words.add(s.nextLine());
             }
         } catch(Exception e) {
-            System.out.println("Failed to read file 'words.txt': " + e);
+            System.out.println("Failed to read file '" + WORDFILE + "': " + e);
         }
         assertTrue(words.size() > 100000);
-        System.out.println("Read " + words.size() + " words from words.txt.");
+        System.out.println("Read " + words.size() + " words from " + WORDFILE + ".");
     }
     
     private char randomChar(Random rng, char spec) {
